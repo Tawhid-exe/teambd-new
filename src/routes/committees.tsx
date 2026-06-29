@@ -214,9 +214,9 @@ function Committees() {
         image="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=1920&q=80"
         stats={[
           { label: "President", value: "1" },
-          { label: "Advisors", value: "3" },
+          { label: "Advisors", value: "30" },
           { label: "Executives", value: "6" },
-          { label: "Thana Reps", value: "490+" },
+          { label: "District Reps", value: "64" },
         ]}
       />
 

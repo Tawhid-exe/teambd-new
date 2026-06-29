@@ -94,80 +94,78 @@ function Hero() {
 
   return (
     <>
-    <section ref={ref} className="relative min-h-[100svh] md:min-h-[100svh] overflow-hidden text-white">
-      {slides.map((imgSrc, idx) => (
-        <motion.div
-          key={idx}
-          className="absolute inset-0"
-          initial={false}
-          animate={{
-            opacity: idx === currentSlide ? 1 : 0,
-            scale: idx === currentSlide ? 1.05 : 1,
-            zIndex: idx === currentSlide ? 1 : 0,
-          }}
-          transition={{ duration: 1.5, ease: "easeInOut" }}
-        >
-          <img src={imgSrc} alt="" width={1920} height={1280} className={`h-full w-full object-cover ${idx === 0 ? 'object-[center_65%] md:object-center' : 'object-center'}`} />
-          <div className="absolute inset-0 bg-gradient-to-b from-leaf-deep/70 via-leaf-deep/60 to-leaf-deep/95" />
+      <section ref={ref} className="relative min-h-[100svh] md:min-h-[100svh] overflow-hidden text-white">
+        {slides.map((imgSrc, idx) => (
+          <motion.div
+            key={idx}
+            className="absolute inset-0"
+            initial={false}
+            animate={{
+              opacity: idx === currentSlide ? 1 : 0,
+              scale: idx === currentSlide ? 1.05 : 1,
+              zIndex: idx === currentSlide ? 1 : 0,
+            }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+          >
+            <img src={imgSrc} alt="" width={1920} height={1280} className={`h-full w-full object-cover ${idx === 0 ? 'object-[center_65%] md:object-center' : 'object-center'}`} />
+            <div className="absolute inset-0 bg-gradient-to-b from-leaf-deep/70 via-leaf-deep/60 to-leaf-deep/95" />
+          </motion.div>
+        ))}
+
+        {/* floating glass orbs */}
+        <div className={`pointer-events-none absolute inset-0 overflow-hidden z-20 transition-opacity duration-1000 ${currentSlide === 0 ? 'opacity-0' : 'opacity-100'}`}>
+          <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-leaf-glow/20 blur-3xl animate-float-slow" />
+          <div className="absolute top-1/2 -right-32 h-[28rem] w-[28rem] rounded-full bg-ember/20 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }} />
+        </div>
+
+        <motion.div style={{ opacity }} className="relative z-30 mx-auto max-w-7xl px-4 pt-32 md:pt-48 pb-16 md:pb-40 flex flex-col justify-start items-center h-full min-h-[100svh]">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl text-center md:text-left mr-auto"
+          >
+            <p className="font-script text-3xl md:text-4xl text-ember mb-4">
+              Let's build a greener future
+            </p>
+
+            <h1 className="font-bengali font-bold text-5xl md:text-7xl leading-[1.1] tracking-tight drop-shadow-2xl">
+              করবো কাজ – গড়বো দেশ,
+              <br />
+              <span className="text-gradient-leaf">সবার আগে বাংলাদেশ</span>
+            </h1>
+
+            <p className="hidden md:block mt-6 max-w-xl text-base sm:text-lg text-white/80">
+              A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
+            </p>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href="https://docs.google.com/forms/d/e/1FAIpQLScIvWrbTFC_giHJ2lQih6JJ6YiJcEbbgzTM-TBF3YDmVKBdjA/viewform?usp=publish-editor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-leaf px-8 py-4 text-white font-bold tracking-wider uppercase transition-colors hover:text-leaf overflow-hidden z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10 shadow-lg hover:shadow-xl pointer-events-auto"
+              >
+                <span>Join Us</span>
+                <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </a>
+              <a href="#about" className="inline-flex items-center gap-2 text-white font-medium hover:text-leaf-glow transition-colors bg-black/20 px-6 py-4 rounded-full backdrop-blur-sm border border-white/10">
+                Learn more <ChevronDown className="h-4 w-4" />
+              </a>
+            </div>
+
+            {/* Mobile-only description inside hero */}
+            <p className={`md:hidden ${currentSlide === 0 ? 'mt-40' : 'mt-16'} max-w-xl text-sm leading-relaxed text-white/90 transition-all duration-700 ease-in-out`}>
+              A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
+            </p>
+          </motion.div>
         </motion.div>
-      ))}
 
-      {/* floating glass orbs */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-leaf-glow/20 blur-3xl animate-float-slow" />
-        <div className="absolute top-1/2 -right-32 h-[28rem] w-[28rem] rounded-full bg-ember/20 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }} />
-      </div>
-
-      <motion.div style={{ opacity }} className="relative z-30 mx-auto max-w-7xl px-4 pt-32 md:pt-48 pb-16 md:pb-40 flex flex-col justify-start items-center h-full min-h-[100svh]">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="max-w-3xl text-center md:text-left mr-auto"
-        >
-          <p className="font-script text-3xl md:text-4xl text-ember mb-4">
-            Let's build a greener future
-          </p>
-
-          <h1 className="font-bengali font-bold text-5xl md:text-7xl leading-[1.1] tracking-tight drop-shadow-2xl">
-            করবো কাজ – গড়বো দেশ,
-            <br />
-            <span className="text-gradient-leaf">সবার আগে বাংলাদেশ</span>
-          </h1>
-
-          <p className="hidden md:block mt-6 max-w-xl text-base sm:text-lg text-white/80">
-            A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-4">
-            <a
-              href="https://docs.google.com/forms/d/e/1FAIpQLScIvWrbTFC_giHJ2lQih6JJ6YiJcEbbgzTM-TBF3YDmVKBdjA/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-leaf px-8 py-4 text-white font-bold tracking-wider uppercase transition-colors hover:text-leaf overflow-hidden z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10 shadow-lg hover:shadow-xl pointer-events-auto"
-            >
-              <span>Join Us</span>
-              <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </a>
-            <a href="#about" className="inline-flex items-center gap-2 text-white font-medium hover:text-leaf-glow transition-colors bg-black/20 px-6 py-4 rounded-full backdrop-blur-sm border border-white/10">
-              Learn more <ChevronDown className="h-4 w-4" />
-            </a>
-          </div>
-        </motion.div>
-      </motion.div>
-
-      {/* wave divider */}
-      <svg className="absolute bottom-0 left-0 right-0 z-10 w-full" viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ height: 60, display: 'block' }}>
-        <path fill="var(--ivory)" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
-      </svg>
-    </section>
-
-    {/* Mobile-only description band below hero */}
-    <div className="md:hidden bg-leaf-deep/95 px-6 py-5 text-center">
-      <p className="text-white/90 text-sm leading-relaxed">
-        A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
-      </p>
-    </div>
+        {/* wave divider */}
+        <svg className="absolute bottom-0 left-0 right-0 z-10 w-full" viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ height: 60, display: 'block' }}>
+          <path fill="var(--ivory)" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
+        </svg>
+      </section>
     </>
   );
 }
@@ -214,7 +212,7 @@ function About() {
           className="relative aspect-square"
         >
           <div className="absolute inset-0 rounded-full bg-gradient-to-br from-leaf-glow/30 to-ember/20 blur-2xl" />
-          <img src={unity} alt="Team Bangladesh Logo" width={800} height={800} className="relative h-full w-full object-contain animate-float-slow" loading="lazy" />
+          <img src={teamLogo} alt="Team Bangladesh Logo" width={800} height={800} className="relative h-full w-full object-contain animate-float-slow" loading="lazy" />
           <div className="absolute bottom-4 right-4 md:bottom-8 md:right-8">
             <div className="relative grid h-28 w-28 md:h-32 md:w-32 place-items-center rounded-full bg-gradient-to-br from-leaf to-leaf-deep text-white text-center shadow-2xl animate-pulse-ring">
               <div>
@@ -249,7 +247,7 @@ function About() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-6 text-muted-foreground leading-relaxed"
           >
-            Team Bangladesh is a non-profit organisation of volunteers, educators, healthcare workers, and changemakers from across the country. We unite around a single mission: a greener, cleaner, healthier nation, built block by block, neighborhood by neighborhood.
+            Team Bangladesh is a national civic youth movement committed to building a better Bangladesh through responsible leadership, unity and community services, guided by the inspiring motto: "BANGLADESH FIRST."
           </motion.p>
 
           <motion.p
@@ -259,7 +257,8 @@ function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 text-muted-foreground leading-relaxed"
           >
-            From tree plantations and free medical camps to renewable energy and inclusive education — we turn local action into national change, with collaboration at the heart of everything we do.
+            We empower specially young people by developing both hard and soft skills, enabling them to solve local challenges and create positive social change. 
+            Together, we believe that a stronger nation is built by responsible citizens who lead with integrity, compassion and purposeful action.
           </motion.p>
 
           <div className="mt-10 grid grid-cols-3 gap-4">
@@ -554,9 +553,12 @@ function Mission() {
             <div className="grid h-14 w-14 place-items-center rounded-2xl bg-ember/20 text-ember mb-5">
               <Target className="h-7 w-7" />
             </div>
-            <h3 className="text-2xl font-extrabold">Our Vision</h3>
+            <h3 className="text-2xl font-extrabold">OUR VISION</h3>
+            <p className="mt-1 text-white/75 font-semibold">The Bangladesh We Are Building_</p>
             <p className="mt-3 text-white/75 leading-relaxed">
-              The group is formed to make the constitution, policymaking, planning, and implementation of all eminent committees and tasks among the various members of various levels of the organization.
+              We envision a prosperous, just and united Bangladesh where every young person becomes a force for positive change.<br />
+              A Bangladesh where citizens are responsible, communities are strong, institutions are trusted and people work together to build a better future for everyone.<br />
+              Because, Bangladesh First.
             </p>
           </motion.div>
 
@@ -570,18 +572,23 @@ function Mission() {
             <div className="grid h-14 w-14 place-items-center rounded-2xl bg-ember/20 text-ember mb-5">
               <ListChecks className="h-7 w-7" />
             </div>
-            <h3 className="text-2xl font-extrabold">Organization Policies</h3>
-            <ul className="mt-3 space-y-3 text-white/75">
+            <h3 className="text-2xl font-extrabold">CORE VALUES:</h3>
+            <p className="mt-1 text-white/75">The principles that guide everything we do_</p>
+            <ul className="mt-4 space-y-3 text-white/75">
               {[
-                "Share any matter related to the organization.",
-                "Maintain your association rules and conduct.",
-                "Anyone can use the feedback to the committee.",
-                "Refrain from making subordinates or junior tasks.",
-                "On gratification of the committee of the honorable Chairman, you certify the position.",
+                { title: "INTEGRITY", desc: "We act with honesty, transparency and accountability." },
+                { title: "UNITY", desc: "We respect diversity and work together for a common purpose." },
+                { title: "INNOVATION", desc: "We embrace new ideas and practical solutions for national progress." },
+                { title: "RESPONSIBILITY", desc: "We take responsibility for our society, environment and future." },
+                { title: "DEDICATION", desc: "We serve with commitment, passion and selflessness." },
+                { title: "EXCELLENCE", desc: "We strive for the highest standards in character, skills and service." },
               ].map((t) => (
-                <li key={t} className="flex gap-2">
-                  <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-ember" />
-                  <span>{t}</span>
+                <li key={t.title} className="flex gap-2 text-sm md:text-base">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-ember" />
+                  <div>
+                    <span className="font-bold text-white">{t.title} - </span>
+                    <span>{t.desc}</span>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -699,7 +706,7 @@ function CTA() {
             Let's build a greener, cleaner and<br />healthier Bangladesh – together.
           </h2>
         </div>
-        <a href="#" className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-8 py-4 text-white font-bold shadow-2xl hover:scale-105 transition whitespace-nowrap">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScIvWrbTFC_giHJ2lQih6JJ6YiJcEbbgzTM-TBF3YDmVKBdjA/viewform?usp=publish-editor" target="_blank" rel="noopener noreferrer" className="group inline-flex items-center justify-center gap-2 rounded-full bg-ink px-8 py-4 text-white font-bold shadow-2xl hover:scale-105 transition whitespace-nowrap">
           Join as Volunteer
           <ChevronRight className="h-4 w-4 transition group-hover:translate-x-1" />
         </a>

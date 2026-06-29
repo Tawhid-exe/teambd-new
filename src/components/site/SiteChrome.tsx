@@ -266,7 +266,7 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
   const [activeSub, setActiveSub] = useState<string | null>(null);
   const [showContact, setShowContact] = useState(false);
   const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
-  const [showSplash, setShowSplash] = useState(!splashPlayedGlobal);
+  const [showSplash, setShowSplash] = useState(!splashPlayedGlobal && isHome);
   const sobarNavRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -297,10 +297,10 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
 
   return (
     <motion.header
-      initial={isInitialMount ? { y: -80, opacity: 0 } : { y: 0, opacity: 1 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}
+      initial={isInitialMount ? { opacity: 0 } : { opacity: 1 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className={`flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 ${useGlassLight ? "glass" : "glass-dark"
@@ -373,15 +373,15 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
             }} />
           )}
 
-          <Link to="/" className="flex items-center gap-2 shrink-0 group">
+          <Link to="/" className="flex items-center gap-1.5 shrink-0 group -ml-1">
             <img
               ref={sobarNavRef}
               src={sobarLogoSrc}
               alt="Sobar agge Bangladesh"
               className="object-contain"
-              style={{ height: 40, width: 'auto', opacity: showSplash ? 0 : 1, visibility: showSplash ? 'hidden' : 'visible' }}
+              style={{ height: 32, width: 'auto', opacity: showSplash ? 0 : 1, visibility: showSplash ? 'hidden' : 'visible' }}
             />
-            <span className={`font-extrabold text-lg tracking-tight ${useGlassLight ? "text-ink" : "text-white"}`}>
+            <span className={`font-extrabold text-xl tracking-tight ${useGlassLight ? "text-ink" : "text-white"}`}>
               TEAM BANGLADESH
             </span>
           </Link>
@@ -516,15 +516,12 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
                 </div>
               );
             })}
-            <motion.a
+            <a
               href="/donate"
-              whileHover={{ scale: 1.06, y: -2 }}
-              whileTap={{ scale: 0.96 }}
-              transition={{ type: "spring", stiffness: 400, damping: 18 }}
-              className="ml-3 px-5 py-2.5 rounded-full bg-ember text-white text-sm font-bold uppercase tracking-wider shadow-lg shadow-ember/30 hover:shadow-ember/50"
+              className="ml-3 group relative overflow-hidden inline-flex items-center justify-center px-5 py-2.5 rounded-full bg-leaf text-white text-sm font-bold uppercase tracking-wider transition-colors hover:text-leaf z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10 shadow-lg hover:shadow-xl"
             >
-              Donate
-            </motion.a>
+              <span>Donate</span>
+            </a>
           </nav>
 
           <button onClick={() => setOpen(!open)} className={`lg:hidden p-2 rounded-lg ${useGlassLight ? "text-ink" : "text-white"}`}>
@@ -624,7 +621,7 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
                   <Link
                     to="/donate"
                     onClick={() => setOpen(false)}
-                    className="group relative overflow-hidden flex items-center justify-center w-full py-3.5 rounded-full bg-[#ff7a00] text-white font-bold uppercase tracking-widest text-xs shadow-lg hover:shadow-xl transition-colors hover:text-[#ff7a00] z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10"
+                    className="group relative overflow-hidden flex items-center justify-center w-full py-3.5 rounded-full bg-leaf text-white font-bold uppercase tracking-widest text-xs shadow-lg hover:shadow-xl transition-colors hover:text-leaf z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10"
                   >
                     <span>Donate Now</span>
                   </Link>

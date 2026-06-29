@@ -22,15 +22,15 @@ export const Route = createFileRoute("/donate")({
 const AMOUNTS = [500, 1000, 2500, 5000, 10000];
 
 const MOBILE = [
-  { name: "bKash",  number: "+880 1911-480021", type: "Personal", color: "from-pink-500 to-rose-600", initial: "bK" },
-  { name: "Nagad",  number: "+880 1911-480021", type: "Personal", color: "from-orange-500 to-amber-600", initial: "Ng" },
-  { name: "Rocket", number: "+880 1911-480021-2", type: "Personal", color: "from-fuchsia-600 to-purple-700", initial: "Rk" },
-  { name: "Upay",   number: "+880 1911-480021", type: "Personal", color: "from-emerald-500 to-teal-600", initial: "Up" },
+  { name: "bKash", number: "+880 1911-480021", type: "Personal", color: "from-pink-500 to-rose-600", initial: "bK" },
+  { name: "Nagad", number: "+880 1911-480021", type: "Personal", color: "from-orange-500 to-amber-600", initial: "Ng" },
+  { name: "Rocket", number: "+880 1911-480021", type: "Personal", color: "from-fuchsia-600 to-purple-700", initial: "Rk" },
+  { name: "Upay", number: "+880 1911-480021", type: "Personal", color: "from-emerald-500 to-teal-600", initial: "Up" },
 ];
 
 const BANKS = [
   { name: "Dutch-Bangla Bank Ltd.", account: "101.123.456789", branch: "Gulshan Branch, Dhaka", routing: "090260423", swift: "DBBLBDDH" },
-  { name: "BRAC Bank Ltd.",        account: "1501-200456789-001", branch: "Banani Branch, Dhaka", routing: "060264563", swift: "BRAKBDDH" },
+  { name: "BRAC Bank Ltd.", account: "1501-200456789-001", branch: "Banani Branch, Dhaka", routing: "060264563", swift: "BRAKBDDH" },
   { name: "Islami Bank Bangladesh", account: "2050-3540100012345", branch: "Mohakhali Branch, Dhaka", routing: "125270439", swift: "IBBLBDDH" },
 ];
 
@@ -103,11 +103,10 @@ function Donate() {
                   whileHover={{ y: -3 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => { setAmount(a); setCustom(""); }}
-                  className={`rounded-full py-2.5 px-2 flex items-center justify-center text-[15px] sm:text-base font-bold border transition-all ${
-                    amount === a && !custom
+                  className={`rounded-full py-2.5 px-2 flex items-center justify-center text-[15px] sm:text-base font-bold border transition-all ${amount === a && !custom
                       ? "bg-leaf-deep text-white border-leaf shadow-lg shadow-leaf/30"
                       : "bg-background border-border text-foreground hover:border-leaf hover:bg-leaf/5"
-                  }`}
+                    }`}
                 >
                   <span className="text-[11px] sm:text-xs text-muted-foreground mr-0.5">৳</span>{a.toLocaleString()}
                 </motion.button>
@@ -156,15 +155,14 @@ function Donate() {
             <div className="flex flex-wrap gap-2 mb-6">
               {([
                 { k: "mobile", l: "Mobile Banking", I: Smartphone },
-                { k: "bank",   l: "Bank Transfer",  I: Landmark },
-                { k: "card",   l: "Card / Online",  I: CreditCard },
+                { k: "bank", l: "Bank Transfer", I: Landmark },
+                { k: "card", l: "Card / Online", I: CreditCard },
               ] as const).map(({ k, l, I }) => (
                 <button
                   key={k}
                   onClick={() => setTab(k)}
-                  className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${
-                    tab === k ? "bg-foreground text-background" : "bg-card border border-border text-foreground hover:border-leaf"
-                  }`}
+                  className={`relative inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-all ${tab === k ? "bg-foreground text-background" : "bg-card border border-border text-foreground hover:border-leaf"
+                    }`}
                 >
                   <I className="h-4 w-4" /> {l}
                 </button>
