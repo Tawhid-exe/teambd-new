@@ -84,6 +84,9 @@ function SplashScreen({ onDone }: { onDone: (logoEl: HTMLImageElement | null, wr
     let audioStarted = false;
     let interactionFn: (() => void) | null = null;
 
+    // Lock body scroll while splash is active
+    document.body.style.overflow = 'hidden';
+
     const killInteractionListener = () => {
       if (interactionFn) {
         window.removeEventListener('click', interactionFn);
@@ -97,14 +100,18 @@ function SplashScreen({ onDone }: { onDone: (logoEl: HTMLImageElement | null, wr
     if (audio && !hasPlayed.current) {
       hasPlayed.current = true;
       audio.volume = 0.8;
-      audio.load();
+      // Do NOT call audio.load() — it aborts the preload fetch and resets
+      // the decoder, causing a stutter/glitch at the start of playback.
+      // preload="auto" on the element already handles buffering.
 
       audio.play().catch(err => console.log("Autoplay blocked or failed:", err));
 
       interactionFn = () => {
-        if (audio) {
+        if (audio && audio.paused) {
+          // Only seek + resume if autoplay was actually blocked (audio is paused).
+          // If audio is already playing, touching the screen must NOT seek —
+          // that forced seek is what caused the mid-playback glitch.
           const elapsed = (Date.now() - startTime) / 1000;
-          // If clicked before the end of the splash sequence, jump to the correct time
           if (elapsed < 4.5) {
             audio.currentTime = elapsed;
             audio.play().catch(() => { });
@@ -130,6 +137,8 @@ function SplashScreen({ onDone }: { onDone: (logoEl: HTMLImageElement | null, wr
     // At 3500ms: logo is at full opacity, background still white → perfect moment to morph
     const t5 = setTimeout(() => {
       killInteractionListener();
+      // Restore scroll when splash is about to end
+      document.body.style.overflow = '';
       // Hand off immediately — logo is fully visible right now.
       // Pass wrapperRef so parent can fade it out.
       onDone(sLogo.current, wrapperRef.current);
@@ -151,6 +160,8 @@ function SplashScreen({ onDone }: { onDone: (logoEl: HTMLImageElement | null, wr
 
     return () => {
       killInteractionListener();
+      // Always restore scroll on cleanup
+      document.body.style.overflow = '';
       clearTimeout(t1); clearTimeout(t2); clearTimeout(t3);
       clearTimeout(t4); clearTimeout(t5); clearTimeout(t6);
       hasPlayed.current = false;
@@ -267,6 +278,10 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
   const [showContact, setShowContact] = useState(false);
   const isHome = typeof window !== 'undefined' && window.location.pathname === '/';
   const [showSplash, setShowSplash] = useState(!splashPlayedGlobal && isHome);
+  // navVisible is false only while the white splash bg is fully covering the screen.
+  // It becomes true the instant onDone fires (white bg starts fading) so the navbar
+  // is visible during the logo morph animation rather than popping in at the end.
+  const [navVisible, setNavVisible] = useState(splashPlayedGlobal || !isHome);
   const sobarNavRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -301,12 +316,17 @@ export function SiteNavbar({ transparentOnTop = false }: { transparentOnTop?: bo
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       className={`fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ${scrolled ? "py-2" : "py-4"}`}
+      style={!navVisible ? { visibility: 'hidden', pointerEvents: 'none' } : undefined}
     >
       <div className="mx-auto max-w-7xl px-4">
         <div className={`flex items-center justify-between rounded-2xl px-4 md:px-6 py-3 transition-all duration-500 ${useGlassLight ? "glass" : "glass-dark"
           }`}>
           {showSplash && (
             <SplashScreen onDone={(logoEl, wrapper) => {
+              // Make navbar visible immediately as the white bg starts fading.
+              // The logo clone will fly from splash→nav, so the bar itself should be visible now.
+              setNavVisible(true);
+
               if (logoEl && sobarNavRef.current) {
                 const nav = sobarNavRef.current;
 

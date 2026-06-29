@@ -94,7 +94,7 @@ function Hero() {
 
   return (
     <>
-      <section ref={ref} className="relative min-h-[100svh] md:min-h-[100svh] overflow-hidden text-white">
+      <section ref={ref} className="relative min-h-[80svh] md:min-h-[100svh] overflow-hidden text-white">
         {slides.map((imgSrc, idx) => (
           <motion.div
             key={idx}
@@ -118,18 +118,18 @@ function Hero() {
           <div className="absolute top-1/2 -right-32 h-[28rem] w-[28rem] rounded-full bg-ember/20 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }} />
         </div>
 
-        <motion.div style={{ opacity }} className="relative z-30 mx-auto max-w-7xl px-4 pt-32 md:pt-48 pb-16 md:pb-40 flex flex-col justify-start items-center h-full min-h-[100svh]">
+        <motion.div style={{ opacity }} className="relative z-30 mx-auto max-w-7xl px-4 pt-40 md:pt-48 pb-14 md:pb-40 flex flex-col justify-start items-center h-full min-h-[80svh] md:min-h-[100svh]">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-            className="max-w-3xl text-center md:text-left mr-auto"
+            className="max-w-3xl text-left mr-auto"
           >
-            <p className="font-script text-3xl md:text-4xl text-ember mb-4">
+            <p className="font-script text-2xl md:text-4xl text-ember mb-3">
               Let's build a greener future
             </p>
 
-            <h1 className="font-bengali font-bold text-5xl md:text-7xl leading-[1.1] tracking-tight drop-shadow-2xl">
+            <h1 className="font-bengali font-bold text-[2.25rem] xs:text-4xl sm:text-5xl md:text-7xl leading-[1.15] tracking-tight drop-shadow-2xl">
               করবো কাজ – গড়বো দেশ,
               <br />
               <span className="text-gradient-leaf">সবার আগে বাংলাদেশ</span>
@@ -139,23 +139,23 @@ function Hero() {
               A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
             </p>
 
-            <div className="mt-8 flex flex-wrap items-center gap-4">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLScIvWrbTFC_giHJ2lQih6JJ6YiJcEbbgzTM-TBF3YDmVKBdjA/viewform?usp=publish-editor"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group relative inline-flex items-center justify-center gap-2 rounded-full bg-leaf px-8 py-4 text-white font-bold tracking-wider uppercase transition-colors hover:text-leaf overflow-hidden z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10 shadow-lg hover:shadow-xl pointer-events-auto"
+                className="group relative inline-flex items-center justify-center gap-1.5 rounded-full bg-leaf px-5 py-2.5 md:px-8 md:py-4 text-sm md:text-base text-white font-bold tracking-wider uppercase transition-colors hover:text-leaf overflow-hidden z-10 before:absolute before:inset-0 before:w-0 hover:before:w-full before:bg-white before:transition-all before:duration-400 before:-z-10 shadow-lg hover:shadow-xl pointer-events-auto"
               >
                 <span>Join Us</span>
-                <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                <ChevronRight className="h-4 w-4 md:h-5 md:w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </a>
-              <a href="#about" className="inline-flex items-center gap-2 text-white font-medium hover:text-leaf-glow transition-colors bg-black/20 px-6 py-4 rounded-full backdrop-blur-sm border border-white/10">
-                Learn more <ChevronDown className="h-4 w-4" />
+              <a href="#about" className="inline-flex items-center gap-1.5 text-white text-sm md:text-base font-medium hover:text-leaf-glow transition-colors bg-black/20 px-4 py-2.5 md:px-6 md:py-4 rounded-full backdrop-blur-sm border border-white/10">
+                Learn more <ChevronDown className="h-3.5 w-3.5 md:h-4 md:w-4" />
               </a>
             </div>
 
-            {/* Mobile-only description inside hero */}
-            <p className={`md:hidden ${currentSlide === 0 ? 'mt-40' : 'mt-16'} max-w-xl text-sm leading-relaxed text-white/90 transition-all duration-700 ease-in-out`}>
+            {/* Mobile-only description — shifts position when first slide is active */}
+            <p className={`md:hidden max-w-xl text-sm leading-relaxed text-white/90 transition-all duration-700 ease-in-out ${currentSlide === 0 ? 'mt-38' : 'mt-4'}`}>
               A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
             </p>
           </motion.div>
@@ -257,7 +257,7 @@ function About() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mt-4 text-muted-foreground leading-relaxed"
           >
-            We empower specially young people by developing both hard and soft skills, enabling them to solve local challenges and create positive social change. 
+            We empower specially young people by developing both hard and soft skills, enabling them to solve local challenges and create positive social change.
             Together, we believe that a stronger nation is built by responsible citizens who lead with integrity, compassion and purposeful action.
           </motion.p>
 
