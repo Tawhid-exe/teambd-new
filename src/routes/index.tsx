@@ -112,11 +112,7 @@ function Hero() {
           </motion.div>
         ))}
 
-        {/* floating glass orbs */}
-        <div className={`pointer-events-none absolute inset-0 overflow-hidden z-20 transition-opacity duration-1000 ${currentSlide === 0 ? 'opacity-0' : 'opacity-100'}`}>
-          <div className="absolute -top-20 -left-20 h-96 w-96 rounded-full bg-leaf-glow/20 blur-3xl animate-float-slow" />
-          <div className="absolute top-1/2 -right-32 h-[28rem] w-[28rem] rounded-full bg-ember/20 blur-3xl animate-float-slow" style={{ animationDelay: "2s" }} />
-        </div>
+
 
         <motion.div style={{ opacity }} className="relative z-30 mx-auto max-w-7xl px-4 pt-40 md:pt-48 pb-14 md:pb-40 flex flex-col justify-start items-center h-full min-h-[80svh] md:min-h-[100svh]">
           <motion.div
