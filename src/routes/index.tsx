@@ -542,7 +542,25 @@ function Mission() {
           The group coordinates policymaking, planning, and decision-making among local committee members.
         </p>
 
-        <div className="mt-14 grid md:grid-cols-2 gap-6 text-left">
+        <div className="mt-14 grid md:grid-cols-3 gap-6 text-left">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="glass-dark rounded-3xl p-8"
+          >
+            <div className="grid h-14 w-14 place-items-center rounded-2xl bg-ember/20 text-ember mb-5">
+              <Heart className="h-7 w-7" />
+            </div>
+            <h3 className="text-2xl font-extrabold">OUR MISSION</h3>
+            <p className="mt-1 text-white/75 font-semibold">Who we are and what we do_</p>
+            <p className="mt-3 text-white/75 leading-relaxed">
+              Team Bangladesh is a national civic youth movement committed to building a generation of responsible, skilled and compassionate citizens.<br /><br />
+              We inspire and empower young people to develop leadership, serve their communities, solve real-life challenges and work together for the progress of Bangladesh through integrity, unity and proper action.
+            </p>
+          </motion.div>
+
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
