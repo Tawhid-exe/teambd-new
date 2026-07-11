@@ -158,7 +158,10 @@ function Hero() {
           </motion.div>
         </motion.div>
 
-
+        {/* wave divider */}
+        <svg className="absolute bottom-0 left-0 right-0 z-10 w-full" viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ height: 60, display: 'block' }}>
+          <path fill="var(--ivory)" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
+        </svg>
       </section>
     </>
   );

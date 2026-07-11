@@ -667,9 +667,9 @@ export function SiteFooter() {
 
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 py-20 grid gap-10 md:grid-cols-2 lg:grid-cols-8">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-2 mb-4">
-            <img src={tbLogoSrc} alt="Team Bangladesh Logo" style={{ width: 40, height: 40, borderRadius: '50%', objectFit: 'cover' }} />
-            <div className="font-bold">TeamBD</div>
+          <div className="flex items-center gap-3 mb-4">
+            <img src={tbLogoSrc} alt="Team Bangladesh Logo" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover' }} />
+            <div className="font-bold text-2xl">Team Bangladesh</div>
           </div>
           <p className="font-script text-ember text-sm">… because Bangladesh First.</p>
           <p className="text-white/60 text-sm mt-4 leading-relaxed">
