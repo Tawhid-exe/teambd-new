@@ -52,7 +52,7 @@ function SectionEyebrow({ children }: { children: React.ReactNode }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.6 }}
       transition={{ duration: 0.5 }}
-      className="font-script text-2xl md:text-3xl text-ember mb-2"
+      className="font-script text-3xl md:text-5xl text-ember mb-2"
     >
       {children}
     </motion.p>
@@ -125,7 +125,7 @@ function Hero() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="max-w-3xl text-left mr-auto"
           >
-            <p className="font-script text-2xl md:text-4xl text-ember mb-3">
+            <p className="font-script text-3xl md:text-5xl text-ember mb-3">
               Let's build a greener future
             </p>
 
@@ -213,8 +213,8 @@ function About() {
                 <div className="flex items-center justify-center gap-1">
                   <Leaf className="h-4 w-4" />
                 </div>
-                <div className="font-extrabold text-sm mt-1">Since 2026</div>
-                <div className="text-[10px] mt-0.5 opacity-90">Bangladesh First</div>
+                <div className="font-medium text-sm mt-1">Since 2026</div>
+                <div className="font-bold text-[10px] mt-0.5 opacity-90">Bangladesh First</div>
               </div>
             </div>
           </div>
@@ -231,7 +231,7 @@ function About() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mt-4 inline-flex items-center gap-2 rounded-full bg-leaf/10 px-4 py-2 text-sm font-semibold text-leaf-deep"
           >
-            <Heart className="h-4 w-4" /> Registered under Social Welfare of Bangladesh
+            <Heart className="h-4 w-4" /> Being registered under Social Welfare of Bangladesh
           </motion.div>
 
           <motion.p
@@ -537,7 +537,7 @@ function Mission() {
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 text-center">
-        <p className="font-script text-3xl text-ember mb-2">Our Mission</p>
+        <p className="font-script text-3xl md:text-5xl text-ember mb-2">Our Mission</p>
         <h2 className="text-3xl md:text-5xl font-extrabold">A coordinated movement, grounded in trust</h2>
         <p className="mt-4 text-white/70 max-w-2xl mx-auto">
           The group coordinates policymaking, planning, and decision-making among local committee members.
@@ -559,7 +559,7 @@ function Mission() {
             <p className="mt-3 text-white/75 leading-relaxed">
               We envision a prosperous, just and united Bangladesh where every young person becomes a force for positive change.<br />
               A Bangladesh where citizens are responsible, communities are strong, institutions are trusted and people work together to build a better future for everyone.<br />
-              Because, Bangladesh First.
+              <span className="font-script text-3xl md:text-5xl text-ember block mt-4">Because, Bangladesh First.</span>
             </p>
           </motion.div>
 
@@ -644,7 +644,7 @@ function Testimonial() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
       <div className="relative mx-auto max-w-4xl px-4 text-center">
-        <p className="font-script text-3xl text-ember mb-2">What People Say</p>
+        <p className="font-script text-3xl md:text-5xl text-ember mb-2">What People Say</p>
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
