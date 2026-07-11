@@ -4,6 +4,11 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Crown, Shield, Building2, MapPin, Linkedin, Mail, Sparkles, Users, ChevronDown, ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import femImg from "@/assets/FEM.png";
+import teamPrecident from "@/assets/precident.jpeg";
+import teamNazmul from "@/assets/nazmul.png";
+import teamLogo from "@/assets/tblogo.png";
+import teamAruni from "@/assets/aruni.jpeg";
+import teamNahreen from "@/assets/nahreen.jpeg";
 
 export const Route = createFileRoute("/committees")({
   head: () => ({
@@ -32,7 +37,7 @@ const CHIEF_ADVISOR: Person = {
   name: "Dr. Muhit A Rana",
   role: "Chief Advisor",
   bio: "Founding visionary and chief advisor, guiding the organization's strategy and nation-wide green development agenda.",
-  img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=900&q=80",
+  img: teamPrecident,
 };
 
 const ADVISORS: Person[] = [
@@ -41,12 +46,12 @@ const ADVISORS: Person[] = [
 ];
 
 const EXEC: Person[] = [
-  { n: "01", name: "Sultana Ahmed, MP", role: "President", bio: "Heads the organization and chairs the executive committee.", img: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80" },
-  { n: "02", name: "Dr. Muhit A Rana", role: "Founder & Chief Advisor", bio: "Founding visionary and strategic guide.", img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80" },
-  { n: "03", name: "Nazmul", role: "General Secretary", bio: "Day-to-day operations and inter-committee coordination.", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&q=80" },
-  { n: "04", name: "Salima Talukder Aruni", role: "Vice President", bio: "Internal logistics and executive strategy planning.", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&q=80" },
-  { n: "05", name: "Rakin", role: "Treasurer", bio: "Finance, audit and donor accountability.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
-  { n: "06", name: "Nahreen Asghar", role: "Executive Member", bio: "National outreach and public relations.", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80" },
+  { n: "01", name: "Sultana Ahmed, MP", role: "President", bio: "Heads the organization and chairs the executive committee.", img: teamLogo },
+  { n: "02", name: "Salima Talukder Aruni", role: "Vice President", bio: "Internal logistics and executive strategy planning.", img: teamAruni },
+  { n: "03", name: "Nazmul Bari", role: "General Secretary", bio: "Day-to-day operations and inter-committee coordination.", img: teamNazmul },
+  { n: "04", name: "Dr. Muhit A Rana", role: "Founder & Chief Advisor", bio: "Founding visionary and strategic guide.", img: teamPrecident },
+  { n: "05", name: "Rakin", role: "Treasurer", bio: "Finance, audit and donor accountability.", img: teamLogo },
+  { n: "06", name: "Nahreen Asghar", role: "Executive Member", bio: "National outreach and public relations.", img: teamNahreen },
 ];
 
 const CENTRAL: Person[] = [
