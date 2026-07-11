@@ -667,11 +667,20 @@ export function SiteFooter() {
 
       <div className="relative mx-auto max-w-[1600px] px-6 md:px-10 lg:px-16 py-20 grid gap-10 md:grid-cols-2 lg:grid-cols-8">
         <div className="lg:col-span-2">
-          <div className="flex items-center gap-3 mb-4">
+          {/* Mobile layout */}
+          <div className="md:hidden flex flex-col items-center mb-4">
+            <img src={tbLogoSrc} alt="Team Bangladesh Logo" className="w-[80%] aspect-square rounded-full object-cover" />
+            <div className="font-bold text-2xl mt-3 text-center">Team Bangladesh</div>
+          </div>
+          <p className="md:hidden font-script text-ember text-sm text-right mb-4">… because Bangladesh First.</p>
+
+          {/* Desktop layout */}
+          <div className="hidden md:flex items-center gap-3 mb-4">
             <img src={tbLogoSrc} alt="Team Bangladesh Logo" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'cover' }} />
             <div className="font-bold text-2xl">Team Bangladesh</div>
           </div>
-          <p className="font-script text-ember text-sm">… because Bangladesh First.</p>
+          <p className="hidden md:block font-script text-ember text-sm">… because Bangladesh First.</p>
+
           <p className="text-white/60 text-sm mt-4 leading-relaxed">
             A volunteer-powered movement for a greener, kinder, and more equitable Bangladesh.
           </p>
