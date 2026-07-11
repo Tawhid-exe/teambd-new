@@ -446,14 +446,21 @@ function Team() {
         <div className="relative mt-14 px-2 md:px-16">
           <div className="glass-card rounded-3xl p-6 md:p-12 mx-auto max-w-5xl">
             <AnimatePresence mode="wait">
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center text-left"
-              >
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, x: 40 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -40 }}
+                  transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    if (offset.x < -50 || velocity.x < -500) next();
+                    else if (offset.x > 50 || velocity.x > 500) prev();
+                  }}
+                  className="grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center text-left cursor-grab active:cursor-grabbing"
+                >
                 <div className="relative mx-auto flex-shrink-0">
                   <div className="absolute -inset-2 rounded-3xl bg-gradient-to-br from-leaf-glow to-ember opacity-50 blur-xl" />
                   <img
@@ -656,7 +663,14 @@ function Testimonial() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.5 }}
-              className="rounded-3xl p-8 md:p-12 relative text-left border border-white/10 bg-white/5 backdrop-blur-md"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={0.2}
+              onDragEnd={(e, { offset, velocity }) => {
+                if (offset.x < -50 || velocity.x < -500) setI((p) => (p + 1) % TESTIMONIALS.length);
+                else if (offset.x > 50 || velocity.x > 500) setI((p) => (p - 1 + TESTIMONIALS.length) % TESTIMONIALS.length);
+              }}
+              className="rounded-3xl p-8 md:p-12 relative text-left border border-white/10 bg-white/5 backdrop-blur-md cursor-grab active:cursor-grabbing"
             >
               <Quote className="absolute top-6 left-6 h-8 w-8 text-ember" />
               <p className="text-lg md:text-xl italic text-white/90 leading-relaxed pt-4">
