@@ -420,7 +420,7 @@ const TEAM = [
     fb: "https://www.facebook.com/muhitrana",
   },
   {
-    name: "Rakin",
+    name: "Rakin Ahmed Bhuiyan",
     role: "Member",
     org: "Team Bangladesh",
     img: teamLogo,
@@ -467,7 +467,7 @@ function Team() {
                     alt={m.name}
                     loading="lazy"
                     className="relative h-64 w-64 sm:h-80 sm:w-80 md:h-[400px] md:w-[400px] rounded-3xl border-4 border-white shadow-2xl bg-white"
-                    style={{ objectFit: (m.name === 'Rakin' || m.name === 'Sultana Ahmed, MP') ? 'contain' : 'cover' }}
+                    style={{ objectFit: (m.name === 'Rakin Ahmed Bhuiyan' || m.name === 'Sultana Ahmed, MP') ? 'contain' : 'cover' }}
                   />
                 </div>
                 <div>

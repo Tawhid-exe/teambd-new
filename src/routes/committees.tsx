@@ -50,7 +50,7 @@ const EXEC: Person[] = [
   { n: "02", name: "Salima Talukder Aruni", role: "Vice President", bio: "Internal logistics and executive strategy planning.", img: teamAruni },
   { n: "03", name: "Nazmul Bari", role: "General Secretary", bio: "Day-to-day operations and inter-committee coordination.", img: teamNazmul },
   { n: "04", name: "Dr. Muhit A Rana", role: "Founder & Chief Advisor", bio: "Founding visionary and strategic guide.", img: teamPrecident },
-  { n: "05", name: "Rakin", role: "Treasurer", bio: "Finance, audit and donor accountability.", img: teamLogo },
+  { n: "05", name: "Rakin Ahmed Bhuiyan", role: "Treasurer", bio: "Finance, audit and donor accountability.", img: teamLogo },
   { n: "06", name: "Nahreen Asghar", role: "Executive Member", bio: "National outreach and public relations.", img: teamNahreen },
 ];
 
