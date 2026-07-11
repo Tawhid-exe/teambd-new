@@ -154,17 +154,11 @@ function Hero() {
               </a>
             </div>
 
-            {/* Mobile-only description — shifts position when first slide is active */}
-            <p className={`md:hidden max-w-xl text-sm leading-relaxed text-white/90 transition-all duration-700 ease-in-out ${currentSlide === 0 ? 'mt-38' : 'mt-4'}`}>
-              A people-powered movement for inclusive development, a cleaner environment, and a healthier Bangladesh — driven by volunteers, neighborhood by neighborhood.
-            </p>
+
           </motion.div>
         </motion.div>
 
-        {/* wave divider */}
-        <svg className="absolute bottom-0 left-0 right-0 z-10 w-full" viewBox="0 0 1440 80" preserveAspectRatio="none" style={{ height: 60, display: 'block' }}>
-          <path fill="var(--ivory)" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" />
-        </svg>
+
       </section>
     </>
   );
