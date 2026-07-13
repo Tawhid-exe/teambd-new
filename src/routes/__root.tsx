@@ -120,8 +120,9 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <div className="min-h-screen flex flex-col bg-background text-foreground">
         <SiteNavbar />
-        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-        <Outlet />
+        <div className="flex-1 flex flex-col">
+          <Outlet />
+        </div>
         <SiteFooter />
       </div>
     </QueryClientProvider>

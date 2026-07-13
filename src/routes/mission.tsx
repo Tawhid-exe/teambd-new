@@ -28,7 +28,7 @@ function Mission() {
       <PageHero
         eyebrow="Because Bangladesh First"
         title="Our Mission & Vision"
-        subtitle="A pollution-free, green and radically developed Bangladesh where urban and rural spaces coexist with nature — for every generation to come."
+        subtitle="Team Bangladesh is a national civic youth movement committed to building a generation of responsible, skilled and compassionate citizens."
         image="https://images.unsplash.com/photo-1473448912268-2022ce9509d8?w=1920&q=80"
         stats={[
           { label: "Districts", value: "64" },
@@ -64,10 +64,11 @@ function Mission() {
 
         <Reveal delay={0.15}>
           <div>
-            <div className="script text-leaf text-lg">Looking at the horizon</div>
-            <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-balance">A Greener, Thriving Bangladesh.</h2>
+            <div className="script text-leaf text-lg">The Bangladesh We Are Building_</div>
+            <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-balance">OUR VISION</h2>
             <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-              We envision a future where every river runs clean, every street is shaded by a tree, and every citizen — human or animal — lives with dignity. A nation that grows without trading its forests for skylines.
+              We envision a prosperous, just and united Bangladesh where every young person becomes a force for positive change.
+              A Bangladesh where citizens are responsible, communities are strong, institutions are trusted and people work together to build a better future for everyone.
             </p>
             <ul className="mt-8 space-y-3">
               {["Sustainable Ecological Balance", "Clean, Livable Cities", "A Humane, Empowered Society", "Zero-waste Urban Models"].map((t) => (
@@ -103,10 +104,11 @@ function Mission() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="lg:order-1">
-              <div className="script text-leaf text-lg">What drives us every day</div>
-              <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-balance">Executing the change, one field at a time.</h2>
+              <div className="script text-leaf text-lg">Who we are and what we do_</div>
+              <h2 className="text-4xl lg:text-5xl font-bold mt-2 text-balance">OUR MISSION</h2>
               <p className="mt-5 text-muted-foreground text-lg leading-relaxed">
-                We turn intention into action through grounded field projects — conservation, animal welfare, humanitarian aid and rural education — led by volunteers who refuse to wait for someone else to begin.
+                Team Bangladesh is a national civic youth movement committed to building a generation of responsible, skilled and compassionate citizens.
+                We inspire and empower young people to develop leadership, serve their communities, solve real-life challenges and work together for the progress of Bangladesh through integrity, unity and proper action.
               </p>
               <Link to="/campaigns" className="mt-8 inline-flex items-center gap-2 rounded-full gradient-leaf text-white px-6 py-3 font-semibold hover:-translate-y-0.5 shadow-xl shadow-leaf/30 transition">
                 See our action plan <ArrowRight className="h-4 w-4" />

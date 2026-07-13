@@ -27,7 +27,7 @@ type Person = { n: string; name: string; role: string; bio: string; img: string 
 const PRESIDENT: Person = {
   n: "01",
   name: "TBA",
-  role: "President",
+  role: "Member",
   bio: "Leading Team Bangladesh with vision, dedication, and a commitment to a greener, more equitable nation.",
   img: femImg,
 };
@@ -35,29 +35,29 @@ const PRESIDENT: Person = {
 const CHIEF_ADVISOR: Person = {
   n: "A1",
   name: "Dr. Muhit A Rana",
-  role: "Chief Advisor",
+  role: "Member",
   bio: "Founding visionary and chief advisor, guiding the organization's strategy and nation-wide green development agenda.",
   img: teamPrecident,
 };
 
 const ADVISORS: Person[] = [
-  { n: "A2", name: "Barrister Rakeen", role: "Legal Advisor", bio: "Compliance and organizational legal frameworks.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" },
-  { n: "A3", name: "Prof. Anisur Rahman", role: "Strategic Advisor", bio: "Long-term strategy, partnerships and policy advocacy.", img: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=600&q=80" },
+  { n: "A2", name: "Barrister Rakeen", role: "Member", bio: "Compliance and organizational legal frameworks.", img: teamLogo },
+  { n: "A3", name: "Prof. Anisur Rahman", role: "Member", bio: "Long-term strategy, partnerships and policy advocacy.", img: teamLogo },
 ];
 
 const EXEC: Person[] = [
-  { n: "01", name: "Sultana Ahmed, MP", role: "President", bio: "Heads the organization and chairs the executive committee.", img: teamLogo },
-  { n: "02", name: "Salima Talukder Aruni", role: "Vice President", bio: "Internal logistics and executive strategy planning.", img: teamAruni },
-  { n: "03", name: "Nazmul Bari", role: "General Secretary", bio: "Day-to-day operations and inter-committee coordination.", img: teamNazmul },
-  { n: "04", name: "Dr. Muhit A Rana", role: "Founder & Chief Advisor", bio: "Founding visionary and strategic guide.", img: teamPrecident },
-  { n: "05", name: "Rakin Ahmed Bhuiyan", role: "Treasurer", bio: "Finance, audit and donor accountability.", img: teamLogo },
-  { n: "06", name: "Nahreen Asghar", role: "Executive Member", bio: "National outreach and public relations.", img: teamNahreen },
+  { n: "01", name: "Sultana Ahmed, MP", role: "Member", bio: "Heads the organization and chairs the executive committee.", img: teamLogo },
+  { n: "02", name: "Salima Talukder Aruni", role: "Member", bio: "Internal logistics and executive strategy planning.", img: teamAruni },
+  { n: "03", name: "Nazmul Bari", role: "Member", bio: "Day-to-day operations and inter-committee coordination.", img: teamNazmul },
+  { n: "04", name: "Dr. Muhit A Rana", role: "Member", bio: "Founding visionary and strategic guide.", img: teamPrecident },
+  { n: "05", name: "Rakin Ahmed Bhuiyan", role: "Member", bio: "Finance, audit and donor accountability.", img: teamLogo },
+  { n: "06", name: "Nahreen Asghar", role: "Member", bio: "National outreach and public relations.", img: teamNahreen },
 ];
 
 const CENTRAL: Person[] = [
-  { n: "C1", name: "Tanvir Hasan", role: "Organizing Secretary", bio: "Field operations and event mobilization.", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80" },
-  { n: "C2", name: "Mahfuza Akter", role: "Women's Affairs Secretary", bio: "Champion of women-led campaigns nationwide.", img: "https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?w=600&q=80" },
-  { n: "C3", name: "Imran Hossain", role: "Joint Secretary", bio: "Cross-committee coordination and reporting.", img: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=600&q=80" },
+  { n: "C1", name: "Tanvir Hasan", role: "Member", bio: "Field operations and event mobilization.", img: teamLogo },
+  { n: "C2", name: "Mahfuza Akter", role: "Member", bio: "Champion of women-led campaigns nationwide.", img: teamLogo },
+  { n: "C3", name: "Imran Hossain", role: "Member", bio: "Cross-committee coordination and reporting.", img: teamLogo },
 ];
 
 const DISTRICTS = [
@@ -74,18 +74,18 @@ const DISTRICTS = [
 const DUMMY_ADVISORY = Array.from({ length: 28 }).map((_, i) => ({
   n: `A${i + 4}`,
   name: `Advisory Member ${i + 4}`,
-  role: "Advisory Member",
+  role: "Member",
   bio: "TBA",
-  img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=600&q=80&blur=50"
+  img: teamLogo
 }));
 const ALL_ADVISORS = [...ADVISORS, ...DUMMY_ADVISORY];
 
 const DUMMY_CENTRAL = Array.from({ length: 47 }).map((_, i) => ({
   n: `C${i + 4}`,
   name: `Central Member ${i + 4}`,
-  role: "Central Member",
+  role: "Member",
   bio: "TBA",
-  img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&q=80&blur=50"
+  img: teamLogo
 }));
 const ALL_CENTRAL = [...CENTRAL, ...DUMMY_CENTRAL];
 

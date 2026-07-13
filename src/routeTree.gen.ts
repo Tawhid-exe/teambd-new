@@ -9,17 +9,60 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WorkingArenasRouteImport } from './routes/working-arenas'
+import { Route as VideoGalleryRouteImport } from './routes/video-gallery'
+import { Route as RecognitionsRouteImport } from './routes/recognitions'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as PhotoGalleryRouteImport } from './routes/photo-gallery'
+import { Route as PartnersRouteImport } from './routes/partners'
 import { Route as MissionRouteImport } from './routes/mission'
+import { Route as HowWeWorkRouteImport } from './routes/how-we-work'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as DonateRouteImport } from './routes/donate'
 import { Route as CommitteesRouteImport } from './routes/committees'
 import { Route as CampaignsRouteImport } from './routes/campaigns'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as IndexRouteImport } from './routes/index'
 
+const WorkingArenasRoute = WorkingArenasRouteImport.update({
+  id: '/working-arenas',
+  path: '/working-arenas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VideoGalleryRoute = VideoGalleryRouteImport.update({
+  id: '/video-gallery',
+  path: '/video-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecognitionsRoute = RecognitionsRouteImport.update({
+  id: '/recognitions',
+  path: '/recognitions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhotoGalleryRoute = PhotoGalleryRouteImport.update({
+  id: '/photo-gallery',
+  path: '/photo-gallery',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PartnersRoute = PartnersRouteImport.update({
+  id: '/partners',
+  path: '/partners',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const MissionRoute = MissionRouteImport.update({
   id: '/mission',
   path: '/mission',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowWeWorkRoute = HowWeWorkRouteImport.update({
+  id: '/how-we-work',
+  path: '/how-we-work',
   getParentRoute: () => rootRouteImport,
 } as any)
 const FaqRoute = FaqRouteImport.update({
@@ -47,6 +90,11 @@ const CampaignsRoute = CampaignsRouteImport.update({
   path: '/campaigns',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -55,79 +103,184 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/campaigns': typeof CampaignsRoute
   '/committees': typeof CommitteesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
   '/faq': typeof FaqRoute
+  '/how-we-work': typeof HowWeWorkRoute
   '/mission': typeof MissionRoute
+  '/partners': typeof PartnersRoute
+  '/photo-gallery': typeof PhotoGalleryRoute
+  '/products': typeof ProductsRoute
+  '/recognitions': typeof RecognitionsRoute
+  '/video-gallery': typeof VideoGalleryRoute
+  '/working-arenas': typeof WorkingArenasRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/campaigns': typeof CampaignsRoute
   '/committees': typeof CommitteesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
   '/faq': typeof FaqRoute
+  '/how-we-work': typeof HowWeWorkRoute
   '/mission': typeof MissionRoute
+  '/partners': typeof PartnersRoute
+  '/photo-gallery': typeof PhotoGalleryRoute
+  '/products': typeof ProductsRoute
+  '/recognitions': typeof RecognitionsRoute
+  '/video-gallery': typeof VideoGalleryRoute
+  '/working-arenas': typeof WorkingArenasRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/blog': typeof BlogRoute
   '/campaigns': typeof CampaignsRoute
   '/committees': typeof CommitteesRoute
   '/donate': typeof DonateRoute
   '/events': typeof EventsRoute
   '/faq': typeof FaqRoute
+  '/how-we-work': typeof HowWeWorkRoute
   '/mission': typeof MissionRoute
+  '/partners': typeof PartnersRoute
+  '/photo-gallery': typeof PhotoGalleryRoute
+  '/products': typeof ProductsRoute
+  '/recognitions': typeof RecognitionsRoute
+  '/video-gallery': typeof VideoGalleryRoute
+  '/working-arenas': typeof WorkingArenasRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/blog'
     | '/campaigns'
     | '/committees'
     | '/donate'
     | '/events'
     | '/faq'
+    | '/how-we-work'
     | '/mission'
+    | '/partners'
+    | '/photo-gallery'
+    | '/products'
+    | '/recognitions'
+    | '/video-gallery'
+    | '/working-arenas'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/blog'
     | '/campaigns'
     | '/committees'
     | '/donate'
     | '/events'
     | '/faq'
+    | '/how-we-work'
     | '/mission'
+    | '/partners'
+    | '/photo-gallery'
+    | '/products'
+    | '/recognitions'
+    | '/video-gallery'
+    | '/working-arenas'
   id:
     | '__root__'
     | '/'
+    | '/blog'
     | '/campaigns'
     | '/committees'
     | '/donate'
     | '/events'
     | '/faq'
+    | '/how-we-work'
     | '/mission'
+    | '/partners'
+    | '/photo-gallery'
+    | '/products'
+    | '/recognitions'
+    | '/video-gallery'
+    | '/working-arenas'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BlogRoute: typeof BlogRoute
   CampaignsRoute: typeof CampaignsRoute
   CommitteesRoute: typeof CommitteesRoute
   DonateRoute: typeof DonateRoute
   EventsRoute: typeof EventsRoute
   FaqRoute: typeof FaqRoute
+  HowWeWorkRoute: typeof HowWeWorkRoute
   MissionRoute: typeof MissionRoute
+  PartnersRoute: typeof PartnersRoute
+  PhotoGalleryRoute: typeof PhotoGalleryRoute
+  ProductsRoute: typeof ProductsRoute
+  RecognitionsRoute: typeof RecognitionsRoute
+  VideoGalleryRoute: typeof VideoGalleryRoute
+  WorkingArenasRoute: typeof WorkingArenasRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/working-arenas': {
+      id: '/working-arenas'
+      path: '/working-arenas'
+      fullPath: '/working-arenas'
+      preLoaderRoute: typeof WorkingArenasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/video-gallery': {
+      id: '/video-gallery'
+      path: '/video-gallery'
+      fullPath: '/video-gallery'
+      preLoaderRoute: typeof VideoGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recognitions': {
+      id: '/recognitions'
+      path: '/recognitions'
+      fullPath: '/recognitions'
+      preLoaderRoute: typeof RecognitionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/photo-gallery': {
+      id: '/photo-gallery'
+      path: '/photo-gallery'
+      fullPath: '/photo-gallery'
+      preLoaderRoute: typeof PhotoGalleryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/partners': {
+      id: '/partners'
+      path: '/partners'
+      fullPath: '/partners'
+      preLoaderRoute: typeof PartnersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mission': {
       id: '/mission'
       path: '/mission'
       fullPath: '/mission'
       preLoaderRoute: typeof MissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-we-work': {
+      id: '/how-we-work'
+      path: '/how-we-work'
+      fullPath: '/how-we-work'
+      preLoaderRoute: typeof HowWeWorkRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/faq': {
@@ -165,6 +318,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CampaignsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -177,12 +337,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BlogRoute: BlogRoute,
   CampaignsRoute: CampaignsRoute,
   CommitteesRoute: CommitteesRoute,
   DonateRoute: DonateRoute,
   EventsRoute: EventsRoute,
   FaqRoute: FaqRoute,
+  HowWeWorkRoute: HowWeWorkRoute,
   MissionRoute: MissionRoute,
+  PartnersRoute: PartnersRoute,
+  PhotoGalleryRoute: PhotoGalleryRoute,
+  ProductsRoute: ProductsRoute,
+  RecognitionsRoute: RecognitionsRoute,
+  VideoGalleryRoute: VideoGalleryRoute,
+  WorkingArenasRoute: WorkingArenasRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

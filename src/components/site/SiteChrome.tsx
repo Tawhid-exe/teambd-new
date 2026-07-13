@@ -24,10 +24,10 @@ const NAV: NavEntry[] = [
     label: "About Us",
     items: [
       { label: "Our Mission And Vision", to: "/mission" },
-      { label: "How We Work", href: "/#about" },
+      { label: "How We Work", to: "/how-we-work" },
       { label: "Our Committees", to: "/committees" },
-      { label: "Our Working Arenas", href: "/#areas" },
-      { label: "Partners", href: "/#partners" },
+      { label: "Our Working Arenas", to: "/working-arenas" },
+      { label: "Partners", to: "/partners" },
       { label: "Contact Us", href: "/#contact" },
     ],
   },
@@ -38,30 +38,30 @@ const NAV: NavEntry[] = [
       {
         label: "Monthly Recognition",
         items: [
-          { label: "Green Lover of this month", href: "#" },
-          { label: "Green School of this month", href: "#" },
-          { label: "Animal Lover of this month", href: "#" },
-          { label: "Best Student of this month", href: "#" },
-          { label: "Best Teacher of this month", href: "#" },
-          { label: "Best Social Worker of this month", href: "#" },
-          { label: "Best Mother of this month", href: "#" },
-          { label: "Best Father of this month", href: "#" },
-          { label: "Green Club / Society", href: "#" },
-          { label: "Great Volunteer", href: "#" },
-          { label: "Great Leader", href: "#" },
-          { label: "Best District Committee", href: "#" },
-          { label: "Best Thana Committee", href: "#" },
+          { label: "Green Lover of this month", to: "/recognitions" },
+          { label: "Green School of this month", to: "/recognitions" },
+          { label: "Animal Lover of this month", to: "/recognitions" },
+          { label: "Best Student of this month", to: "/recognitions" },
+          { label: "Best Teacher of this month", to: "/recognitions" },
+          { label: "Best Social Worker of this month", to: "/recognitions" },
+          { label: "Best Mother of this month", to: "/recognitions" },
+          { label: "Best Father of this month", to: "/recognitions" },
+          { label: "Green Club / Society", to: "/recognitions" },
+          { label: "Great Volunteer", to: "/recognitions" },
+          { label: "Great Leader", to: "/recognitions" },
+          { label: "Best District Committee", to: "/recognitions" },
+          { label: "Best Thana Committee", to: "/recognitions" },
         ],
       },
       { label: "Events", to: "/events" },
       { label: "Campaigns", to: "/campaigns" },
       { label: "Our Committees", to: "/committees" },
-      { label: "Photo Gallery", href: "#" },
-      { label: "Video Gallery", href: "#" },
-      { label: "Blog", href: "#" },
+      { label: "Photo Gallery", to: "/photo-gallery" },
+      { label: "Video Gallery", to: "/video-gallery" },
+      { label: "Blog", to: "/blog" },
       { label: "FAQ", to: "/faq" },
       { label: "Join With Us (Volunteer)", href: "https://docs.google.com/forms/d/e/1FAIpQLScIvWrbTFC_giHJ2lQih6JJ6YiJcEbbgzTM-TBF3YDmVKBdjA/viewform?usp=publish-editor" },
-      { label: "Products", href: "#" },
+      { label: "Products", to: "/products" },
       { label: "Donation", to: "/donate" },
     ],
   },
@@ -669,7 +669,7 @@ export function SiteFooter() {
         <div className="lg:col-span-2">
           {/* Mobile layout */}
           <div className="md:hidden flex flex-col items-center mb-4">
-            <img src={tbLogoSrc} alt="Team Bangladesh Logo" className="w-[80%] aspect-square rounded-full object-cover" />
+            <img src={tbLogoSrc} alt="Team Bangladesh Logo" className="w-[40%] aspect-square rounded-full object-cover" />
             <div className="font-bold text-2xl mt-3 text-center">Team Bangladesh</div>
           </div>
           <p className="md:hidden font-script text-ember text-sm text-right mb-4">… because Bangladesh First.</p>
